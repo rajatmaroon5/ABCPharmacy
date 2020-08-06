@@ -1,0 +1,9 @@
+<div class="alert cdngAlert notification-overlay messagePosition" [class.alert-error]="notificationError" [class.alert-warning]="notificationWarning"
+     [class.alert-info]="notificationInfo" [class.alert-success]="notificationSuccess">
+  <div class="notifText" role="alert">
+    <span class="fa" [class.fa-check-circle]="notificationSuccess" [class.fa-exclamation-circle]="notificationError" [class.fa-exclamation-triangle]="notificationWarning"
+          [class.fa-info-circle]="notificationInfo"></span>
+    <span *ngIf="!showConsoleErrorMessage" class="notification-text" [innerHtml]="notificationMessage"></span>  
+    <span class="fa fa-times-circle pull-right" (click)="close()"></span>
+  </div>
+</div>

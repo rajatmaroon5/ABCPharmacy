@@ -1,0 +1,61 @@
+
+.fa {
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+.notifText {
+  position: relative;
+
+  .fa.fa-times-circle.pull-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.alert {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.alert.notification-overlay {
+  min-width: 200px;
+  max-width: 50vw;
+  background-color:darkorange;
+}
+
+.alert.notification-overlay.alert-success .notificationUndo {
+  padding-left: 10px;
+}
+
+.notification-text {
+  width: auto;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight:500;
+  color: white;
+}
+
+.notification-overlay {
+  .fa.fa-check-circle, .fa.fa-exclamation-circle, .fa.fa-exclamation-triangle {
+    position: absolute;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .alert.notification-overlay {
+    max-width: 80vw;
+  }
+
+  .notifText {
+    position: relative;
+
+    .fa.fa-times-circle.pull-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

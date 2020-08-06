@@ -1,0 +1,60 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 align-users-icon">
+        <mat-icon svgIcon="users" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+        <div class="align-users-heading">Users</div>
+      </div>
+      <div class="col-lg-3 padding-filter">
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-2 align-button">
+        <button mat-flat-button color="accent" (click)="onAddEditClicked()">
+            Add User
+        </button>
+      </div>
+    </div>
+  </div>
+<mat-divider></mat-divider>
+<mat-table [dataSource]="dataSource" matSort>
+
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef class="bold" mat-sort-header> NAME </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef class="bold"> EMAIL </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+  </ng-container>
+
+  <!-- Role Type Column -->
+  <ng-container matColumnDef="roleType">
+    <mat-header-cell *matHeaderCellDef class="bold"> ROLE TYPE </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.roleType}} </mat-cell>
+  </ng-container>
+
+  <!--Status Column-->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef class="bold"> STATUS  </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <mat-icon svgIcon="status" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon> APPROVED </mat-cell>
+  </ng-container>
+
+  <!--Action Column-->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon svgIcon="edit" aria-hidden="false" aria-label="Example thumbs up SVG icon" (click)="onAddEditClicked(element)"></mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

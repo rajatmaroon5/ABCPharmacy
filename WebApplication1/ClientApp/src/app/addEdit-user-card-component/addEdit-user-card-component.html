@@ -1,0 +1,45 @@
+ <form [formGroup]="formForUser" (ngSubmit)="saveData()">
+        <div class="row">
+            <div class="col-lg-10 heading">{{title}}</div>
+          <div class="col-lg-2"><mat-icon svgIcon="close" aria-hidden="false" (click)="close()" aria-label="Example thumbs up SVG icon"></mat-icon></div>
+            <!--Name Field-->
+            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 margin">
+                <input matInput placeholder="Name" formControlName="name" required (blur)="checkEmpty($event, 'name')" maxLength=128>
+              <mat-hint>{{errorMessage}}</mat-hint>
+            </mat-form-field>
+
+            <!--Email Field-->
+            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 margin">
+                <input matInput placeholder="Email Address" required (blur)="checkEmpty($event, 'email')" formControlName="email" maxLength=254>
+                  <mat-hint>{{errorMessageEmail}}</mat-hint>
+            </mat-form-field>
+
+
+           <div class="col-lg-12 col-md-12 col-sm-12 row">
+                <mat-radio-group formControlName="roleType">
+                    <div class="col-lg-3 align-admin">
+
+                            <mat-radio-button [value]=0>Admin</mat-radio-button>
+
+                    </div>
+                    <div class="col-lg-9 align-ce">
+
+                            <mat-radio-button [value]=1>Customer Executive</mat-radio-button>
+
+                    </div>
+                </mat-radio-group>
+           </div>
+
+            <!--Mobile Number-->
+            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 margin-top">
+                <input matInput placeholder="Mobile Number (Optional)" (blur)="checkEmpty($event, 'mobileNumber')" formControlName="mobileNumber">
+               <mat-hint>{{errorMessageMobileNumber}}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="buttons-section">
+          <div class="col-lg-12">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!formForUser.valid">{{button}}</button>
+          </div>
+        </div>
+</form>
