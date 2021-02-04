@@ -1,0 +1,46 @@
+<form [formGroup]="formForUser" (ngSubmit)="saveData()" class="align-form">
+  <div class="row">
+    <div class="col-lg-10 heading">View/Update</div>
+    <!--Name Field-->
+    <mat-form-field class="col-lg-4 col-md-12 col-sm-12 margin">
+      <input matInput placeholder="Name" formControlName="name" required maxLength=128 disabled>
+    </mat-form-field>
+
+    <!--Brand Field-->
+    <mat-form-field class="col-lg-4 col-md-12 col-sm-12 margin">
+      <input matInput placeholder="Brand" required formControlName="brand">
+    </mat-form-field>
+
+
+    <mat-form-field class="col-lg-4 col-md-12 col-sm-12 margin">
+      <input matInput placeholder="expiryDate" required formControlName="expiryDate">
+    </mat-form-field>
+
+    <!--Quantity-->
+    <mat-form-field class="col-lg-4 col-md-12 col-sm-12 margin-top">
+      <input matInput placeholder="Quantity" type="number" formControlName="quantity">
+    </mat-form-field>
+
+    <!--Price Field-->
+    <mat-form-field class="col-lg-4 col-md-12 col-sm-12 margin-top">
+      <input matInput placeholder="Price" required formControlName="price">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="col-lg-8 col-md-12 col-sm-12 margin-top">
+      <mat-label>Notes</mat-label>
+      <textarea matInput #notes rows="4" formControlName="notes" maxlength="500"></textarea>
+      <mat-hint align="end">{{notes.value.length}} / 500</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-5">
+        <button mat-raised-button color="primary" type="submit">Update</button>
+      </div>
+      <div class="col-lg-5">
+        <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+      </div>
+  </div>
+</form>

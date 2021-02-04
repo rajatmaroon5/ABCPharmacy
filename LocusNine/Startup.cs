@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LocusNine.Services;
-using LocusNine.Services.Implementation;
+using ABCPharmacy.Services;
+using ABCPharmacy.Services.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace LocusNine
+namespace ABCPharmacy
 {
     public class Startup
     {
@@ -29,9 +29,9 @@ namespace LocusNine
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IUserService, UserService>();            
-            services.AddDbContext<LocusNineContext>(options =>
-              options.UseSqlServer(Configuration.GetConnectionString("ConnectionLocusNine")));
+            services.AddScoped<IMedicineService, MedicineService>();            
+            services.AddDbContext<ABCPharmacyContext>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("ConnectionABCPharmacy")));
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

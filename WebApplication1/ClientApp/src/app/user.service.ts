@@ -1,26 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser } from './User';
+import { IMedicine } from './Medicine';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Injectable()
 export default class UserService {
   public API = 'http://localhost:8080/api';
   public JOGGING_RECORDS_ENDPOINT = `${this.API}/joggingrecords`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,) { }
 
-  async getAllUsers(): Promise<IUser[]> {
-     return await this.http.get<IUser[]>('https://localhost:44382/api/users').toPromise();
+  async getAllMeds(): Promise<IMedicine[]> {
+    return await this.http.get<IMedicine[]>('https://localhost:44382/api/medicines').toPromise();
     
   }
 
-  async addUser(userToAdd: IUser): Promise<IUser> {
-    return await this.http.post<IUser>('https://localhost:44382/api/users', userToAdd).toPromise();
+  async add(objToAdd: IMedicine): Promise<IMedicine> {
+    return await this.http.post<IMedicine>('https://localhost:44382/api/medicines?overrideWarning=true', objToAdd).toPromise();
   }
 
-  async editUser(user: IUser, id): Promise<IUser> {
-    return await this.http.put<IUser>(`https://localhost:44382/api/users/${id}`, user).toPromise();
+  async update(objToUpdate: IMedicine, id: number): Promise<IMedicine> {
+    return await this.http.put<IMedicine>('https://localhost:44382/api/medicines/' + id +'?overrideWarning=true', objToUpdate).toPromise();
+  }
+
+  createFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      name: ['', [Validators.required, Validators.maxLength(128)]],
+      brand: ['', [Validators.required, Validators.maxLength(128)]],
+      quantity: [0, [Validators.required, Validators.min(1)]],
+      price: ['', [Validators.required, Validators.pattern(/^(?:\d*\.\d{1,2}|\d+)$/)]],
+      expiryDate: '',
+      notes: ''
+    });
+  }
+
+  initializeNewObject() {
+    let obj: IMedicine = {
+      id: 0,
+      name: '',
+      brand: '',
+      quantity: 0,
+      price: 0.00,
+      expiryDate: '',
+      notes: '',
+    }
+    return obj;
   }
 }
 

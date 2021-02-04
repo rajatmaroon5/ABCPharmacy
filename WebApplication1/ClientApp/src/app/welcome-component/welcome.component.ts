@@ -3,17 +3,15 @@ import { ViewContainerRef } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef, MatIconRegistry } from '@angular/material';
 import { Title, DomSanitizer } from '@angular/platform-browser';
 import { FormControl, Validators } from '@angular/forms';
-import UserService from './user.service';
-import { IMedicine } from './Medicine';
+import UserService from '../user.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.scss']
 
 })
-
-export class AppComponent {
+export class WelcomeComponent {
   constructor(
     private userService: UserService,
     public dialog: MatDialog,

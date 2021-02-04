@@ -1,0 +1,65 @@
+
+<div class="row">
+  <div class="col-lg-9">
+    <div class="align-users-heading">Medicines in Stock</div>
+  </div>
+  <div class="col-lg-3 padding-filter">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-table [dataSource]="dataSource" matSort>
+
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef class="bold" mat-sort-header> NAME </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef class="bold"> BRAND </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.brand}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="expiryDate">
+    <mat-header-cell *matHeaderCellDef class="bold"> EXPIRY DATE </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.expiryDate}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef class="bold"> PRICE </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.price}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef class="bold"> QUANTITY</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.quantity}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="update">
+    <mat-header-cell *matHeaderCellDef class="bold"> VIEW/UPDATE</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button color="accent" (click)="updateNotes(element.id)">
+        <mat-icon class="mat-18">system_update</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'make-yellow': row.expiryStatus == true, 'make-red': row.quantity < 10}"></mat-row>
+</mat-table>
+
+<div class="align-no-records"> {{displayMessage}}</div>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>

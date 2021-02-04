@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocusNine", "LocusNine\LocusNine.csproj", "{96A5A692-3B19-4BA0-A29E-A90E7E1EEB78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABCPharmacy.Medicines.WebAPI", "LocusNine\ABCPharmacy.Medicines.WebAPI.csproj", "{96A5A692-3B19-4BA0-A29E-A90E7E1EEB78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocusNine.Users.WebApplication", "WebApplication1\LocusNine.Users.WebApplication.csproj", "{0F204231-5833-4B9F-AED5-0112C3B3AB4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ABCPharmacy.Medicines.WebApplication", "WebApplication1\ABCPharmacy.Medicines.WebApplication.csproj", "{0F204231-5833-4B9F-AED5-0112C3B3AB4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,31 +25,37 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\addEdit-user-card-component\addEdit-user-card-component.html" />
-    <None Remove="ClientApp\src\app\addEdit-user-card-component\addEdit-user-card-component.ts" />
+    <None Remove="ClientApp\src\app\add-med-component\add-med.component.html" />
+    <None Remove="ClientApp\src\app\add-med-component\add-med.component.ts" />
+    <None Remove="ClientApp\src\app\all-meds-component\all-meds.component.html" />
+    <None Remove="ClientApp\src\app\all-meds-component\all-meds.component.ts" />
     <None Remove="ClientApp\src\app\app.material.module.ts" />
     <None Remove="ClientApp\src\app\common-notification-component\common-notification.component.ts" />
     <None Remove="ClientApp\src\app\enum.ts" />
+    <None Remove="ClientApp\src\app\Medicine.ts" />
     <None Remove="ClientApp\src\app\notificationOptions.ts" />
+    <None Remove="ClientApp\src\app\page-not-found\page-not-found.component.ts" />
     <None Remove="ClientApp\src\app\user.service.ts" />
-    <None Remove="ClientApp\src\app\user.ts" />
-    <None Remove="ClientApp\src\app\users-card-component\users-card-component.html" />
-    <None Remove="ClientApp\src\app\users-card-component\users-card-component.ts" />
+    <None Remove="ClientApp\src\app\view-update-medicine-component\view-update-med.component.ts" />
+    <None Remove="ClientApp\src\app\welcome-component\welcome.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\addEdit-user-card-component\addEdit-user-card-component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\addEdit-user-card-component\addEdit-user-card-component.html" />
+    <TypeScriptCompile Include="ClientApp\src\app\add-med-component\add-med.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\add-med-component\add-med.component.html" />
     <TypeScriptCompile Include="ClientApp\src\app\common-notification-component\common-notification.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\enum.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\notificationOptions.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\User.ts">
+    <TypeScriptCompile Include="ClientApp\src\app\Medicine.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\app.material.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\page-not-found\page-not-found.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\user.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\users-card-component\users-card-component.html" />
-    <TypeScriptCompile Include="ClientApp\src\app\users-card-component\users-card-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\all-meds-component\all-meds.component.html" />
+    <TypeScriptCompile Include="ClientApp\src\app\all-meds-component\all-meds.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\view-update-medicine-component\view-update-med.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\welcome-component\welcome.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

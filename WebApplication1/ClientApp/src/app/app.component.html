@@ -1,24 +1,6 @@
-<div *ngIf="showWelcomePage">
-  <div class="col-md-12 col-sm-12 col-xs-12 welcome">
-    <div>
-      <mat-icon svgIcon="logo" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
-    </div>
-    Welcome to LocusNine Users.
-    <br>
-    <br>
-    <br>
-    <mat-divider></mat-divider>
-    <div class="description">
-      <br> Key Features:
-      <br>
-      <br> <mat-icon svgIcon="user" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>Fetching list of all users.
-      <br> <mat-icon svgIcon="user" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>Adding a new user.
-      <br> <mat-icon svgIcon="user" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>Updating an existing user.
-      <br> <mat-icon svgIcon="user" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>Deleting a user was not included in the UI virtual design. But an API endpoint has been kept if needed to implement.
-    </div>
-  </div>
-
-  <div class="button">
-    <button mat-raised-button color="primary" (click)="getAllUsers()">Fetch All Users</button>
-  </div>
-</div>
+<nav class="docs-navbar-header">
+  <a mat-button routerLink="/welcome">Home</a>
+  <a mat-button routerLink="/all-meds">See All Medicines</a>
+  <a mat-button routerLink="/add-med">Add</a>
+</nav>
+<router-outlet></router-outlet>

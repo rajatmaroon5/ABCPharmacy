@@ -3,19 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace LocusNine
+namespace ABCPharmacy
 {
-    public partial class LocusNineContext : DbContext
+    public partial class ABCPharmacyContext : DbContext
     {
-        public LocusNineContext()
+        public ABCPharmacyContext()
         {
         }
 
-        public LocusNineContext(DbContextOptions<LocusNineContext> options)
+        public ABCPharmacyContext(DbContextOptions<ABCPharmacyContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Medicine> Medicines { get; set; }
     }
 }
